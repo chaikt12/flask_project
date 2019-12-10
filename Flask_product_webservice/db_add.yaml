@@ -1,0 +1,5 @@
+#mysql_host: '192.168.43.'
+mysql_host: '192.168.43.140'
+mysql_user: 'guest'
+mysql_password: 'welcome1'
+mysql_db: 'flaskapp'
