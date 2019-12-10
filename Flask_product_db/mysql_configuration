@@ -1,0 +1,3 @@
+MySQL guest configuration
+-> create user 'guest'@'192.168.43.*' identified by 'welcome1';
+-> grant all on flaskapp.* to 'guest'@'%';
