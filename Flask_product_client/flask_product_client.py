@@ -31,12 +31,12 @@ def index():
             rangeprice=request.form['price']
             data={"rangeprice":rangeprice}
             print(data)
-            requests.post(ip2",json=data, headers={"content-type":"application/json"})
+            requests.post(ip2,json=data, headers={"content-type":"application/json"})
             mod="range_price"
         elif request.form['price']=="item_count":
             itemcount=request.form['price']
             data={"itemcount":itemcount}
-            requests.post(ip3",json=data, headers={"content-type":"application/json"})
+            requests.post(ip3,json=data, headers={"content-type":"application/json"})
             mod="item_count"
      
         return redirect('/test?mod=' + mod)
