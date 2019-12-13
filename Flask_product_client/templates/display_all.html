@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+   <body>
+      <b>Highest price for each category</b>
+      <table border = 1>
+         <thead>
+            <td>Category</td>
+            <td>Maximum_Price</td>
+         </thead>
+         
+         {% for row in productPrice %}
+            <tr>
+               <td>{{row['category']}}</td>
+			   <td>{{row['max_price']}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      
+      <br/> 
+      <br/> 
+      <b>Price range for each sub category</b>
+      <table border = 1>
+         <thead>
+            <td>Sub Category</td>
+            <td>Maximum_Price</td>
+			<td>Minimum_Price</td>
+         </thead>
+         
+         {% for row in rangePrice %}
+            <tr>
+               <td>{{row['sub_category']}}</td>
+               <td>{{row['max_price']}}</td>	
+			   <td>{{row['min_price']}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+
+      <br/> 
+      <br/> 
+      <b>Items count for each category and sub category</b>
+      <table border = 1>
+         <thead>
+            <td>Category</td>
+            <td>Sub Category</td>
+			<td>Item Count</td>
+         </thead>
+         
+         {% for row in itemCount %}
+            <tr>
+               <td>{{row['category']}}</td>
+               <td>{{row['sub_category']}}</td>	
+			   <td>{{row['item_count']}}</td>
+            </tr>
+         {% endfor %}
+      </table>
+      
+   </body>
+</html>
