@@ -9,6 +9,9 @@ from flask import Flask, render_template, request, redirect
 
 import requests
 
+ip1="http://192.168.43.140:5000/"
+ip2="http://192.168.43.223:5000/"
+ip3="http://192.168.43.140:5000/"
 
 app = Flask(__name__)
 
@@ -22,18 +25,18 @@ def index():
         if request.form['price']=="highest_price":
             price=request.form['price']
             data={"price":price}
-            requests.post("http://192.168.43.140:5000/",json=data, headers={"content-type":"application/json"})
+            requests.post(ip1,json=data, headers={"content-type":"application/json"})
             mod = "highest_price"
         elif request.form['price']=="range_price":
             rangeprice=request.form['price']
             data={"rangeprice":rangeprice}
             print(data)
-            requests.post("http://192.168.43.223:5000/",json=data, headers={"content-type":"application/json"})
+            requests.post(ip2",json=data, headers={"content-type":"application/json"})
             mod="range_price"
         elif request.form['price']=="item_count":
             itemcount=request.form['price']
             data={"itemcount":itemcount}
-            requests.post("http://192.168.43.140:5000/",json=data, headers={"content-type":"application/json"})
+            requests.post(ip3",json=data, headers={"content-type":"application/json"})
             mod="item_count"
      
         return redirect('/test?mod=' + mod)
@@ -46,16 +49,16 @@ def test():
         
         if mod=='highest_price':
             #PARAMS = {'key1': 'value1', 'key2': 'value2'}
-            r=requests.get("http://192.168.43.140:5000/product_price")
+            r=requests.get(ip1+"product_price")
             print(r.json())
             return render_template('display_product.html',productPrice=r.json())
         elif mod=='range_price':
-            r=requests.get("http://192.168.43.223:5000/range_price")
+            r=requests.get(ip2+"range_price")
             print(r.json())
             #return r.content
             return render_template('display_range_price.html',productPrice=r.json())
         elif mod=='item_count':
-            r=requests.get("http://192.168.43.140:5000/count")
+            r=requests.get(ip3+"count")
             return render_template('display_item_count.html',productPrice=r.json())
      
     
