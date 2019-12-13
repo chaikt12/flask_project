@@ -47,6 +47,7 @@ def range_price():
     cur = mysql.connection.cursor()
     resultValue = cur.execute("SELECT sub_category,max(price) as max_price,min(price) as min_price from products group by sub_category;")
     if resultValue > 0:
+        print('Getting data from MySQL')
         productPrice = cur.fetchall()
         print(productPrice)
         data=list()
@@ -59,6 +60,7 @@ def range_price():
             tmp={"sub_category":cat,"max_price":max_price,"min_price":min_price}
             data.append(tmp)
         #return render_template('display_range_price.html',productPrice=productPrice)
+        print('Sent result to client')
         return json.dumps(data)
     
 @app.route('/count')
